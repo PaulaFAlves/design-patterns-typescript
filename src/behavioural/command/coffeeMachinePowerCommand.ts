@@ -1,9 +1,9 @@
 // Commands - send command to the receiver
 import { SmartCoffeeShopCommand } from "./smartCoffeeShopCommand";
-import { SmartLight } from "./smartLight";
+import { SmartCoffeeMachine } from "./smartCoffeeMachine";
 
-export class LightPowerCommand implements SmartCoffeeShopCommand {
-  constructor(private readonly light: SmartLight) { }
+export class CoffeeMachinePowerCommand implements SmartCoffeeShopCommand {
+  constructor(private readonly light: SmartCoffeeMachine) { }
 
   execute(): void {
     this.light.on();
