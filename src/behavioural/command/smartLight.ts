@@ -1,5 +1,5 @@
 // Receiver - light, tv, ...
-export class SmartHouseLight {
+export class SmartLight {
   private isOn = false;
 
   constructor(private name: string) { }

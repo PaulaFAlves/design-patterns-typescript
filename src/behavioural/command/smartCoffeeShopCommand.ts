@@ -1,5 +1,5 @@
 // Command interface
-export interface SmartHouseCommand {
+export interface SmartCoffeeShopCommand {
   execute(): void;
   undo(): void;
 }

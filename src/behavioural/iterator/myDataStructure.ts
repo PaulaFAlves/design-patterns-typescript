@@ -19,7 +19,7 @@ export class MyDataStructure {
 
     changeIterator(iterator: MyIteratorInterface<string>): void {
         this.iterator = iterator
-    } 
+    }
 
     [Symbol.iterator](): MyIteratorInterface<string> {
         this.iterator.reset()

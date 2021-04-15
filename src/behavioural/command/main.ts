@@ -1,22 +1,29 @@
-import { SmartHouseLight } from "./smartHouseLight";
-import { SmartHouseApp } from "./smartHouseApp";
+// Receiver - commands interface - invoker
+
+import { SmartLight } from "./smartLight";
+import { SmartCoffeeShopApp } from "./smartCoffeeShopApp";
 import { LightPowerCommand } from "./lightPowerCommand";
+import { SmartCoffeeMachine } from "./smartCoffeeMachine";
+import { CoffeeMachinePowerCommand } from './coffeeMachinePowerCommand'
 
 // Receiver - equipament (tv, light...)
-const bedroomLight = new SmartHouseLight("Luz do quarto");
-const bathroomLight = new SmartHouseLight("Luz do banheiro");
+const coffeeShopLight = new SmartLight("Coffee Shop Light");
+const coffeeShopMachine = new SmartCoffeeMachine("Coffee Machine");
 
 // Command - where commands are defined
-const bedroomLightPowerCommand = new LightPowerCommand(bedroomLight);
-const bathroomLightPowerCommand = new LightPowerCommand(bathroomLight);
+const coffeeShopLightPowerCommand = new LightPowerCommand(coffeeShopLight);
+const coffeeShopMachinePowerCommand = new CoffeeMachinePowerCommand(coffeeShopMachine);
 
 // Invoker - who is calling the commands
-const smartHouseApp = new SmartHouseApp();
+const smartHouseApp = new SmartCoffeeShopApp();
 
 // Control
-smartHouseApp.addCommand("btn-1", bedroomLightPowerCommand);
-smartHouseApp.executeCommand("btn-1");
-smartHouseApp.undoCommand("btn-1");
+smartHouseApp.addCommand("lights", coffeeShopLightPowerCommand);
+smartHouseApp.addCommand("coffee-machine", coffeeShopMachinePowerCommand);
 
-smartHouseApp.addCommand("btn-2", bathroomLightPowerCommand);
-smartHouseApp.executeCommand("btn-2");
+
+smartHouseApp.executeCommand("lights");
+smartHouseApp.executeCommand("coffee-machine");
+smartHouseApp.undoCommand("coffee-machine");
+smartHouseApp.undoCommand("lights");
+
