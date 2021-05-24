@@ -32,7 +32,7 @@ class RoastedBean extends VisitableProduct {
 
 interface TaxVisitorProtocol {
   calculateTaxForGreenBean(greenBean: GreenBean): number;
-  calculateTaxForRoastedBean(RoastedBean: RoastedBean): number;
+  calculateTaxForRoastedBean(roastedBean: RoastedBean): number;
 }
 
 class MinasGeraisTaxVisitor implements TaxVisitorProtocol {
@@ -60,14 +60,14 @@ const roastedBeanBourbonVermelho = new RoastedBean('Bourbon Torrado', 1200)
 const roastedBeanAcaia = new RoastedBean('Acaia Torrado', 1500)
 
 // Visitors
-const minasgeraisTaxVisitor = new MinasGeraisTaxVisitor()
+const minasGeraisTaxVisitor = new MinasGeraisTaxVisitor()
 const espiritoSantoTaxVisitor = new EspiritoSantoTaxVisitor()
 
 // products list
 const products = [greenBeanBourbonVermelho, greenBeanAcaia, roastedBeanBourbonVermelho, roastedBeanAcaia]
 
 console.log('Preços com imposto de MG')
-products.map((item) => console.log(`Produto: ${item.name} - Preço: ${item.price} - Preço com imposto: ${item.getPriceWithTaxes(minasgeraisTaxVisitor)}`))
+products.map((item) => console.log(`Produto: ${item.name} - Preço: ${item.price} - Preço com imposto: ${item.getPriceWithTaxes(minasGeraisTaxVisitor)}`))
 
 console.log('----------------')
 
